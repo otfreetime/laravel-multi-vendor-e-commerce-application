@@ -2,32 +2,34 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
-        "php": "^8.1",
-        "dompdf/dompdf": "^2.0",
-        "guzzlehttp/guzzle": "^7.2",
-        "intervention/image": "^2.7",
+        "php": "^8.2",
+        "dompdf/dompdf": "^3.0",
+        "guzzlehttp/guzzle": "^7.8",
+        "intervention/image": "^3.0",
         "iyzico/iyzipay-php": "^2.0",
-        "laravel/framework": "^10.0",
-        "laravel/passport": "^11.8",
-        "laravel/sanctum": "^3.2",
-        "laravel/tinker": "^2.8",
+        "laravel/framework": "^12.0",
+        "laravel/sanctum": "^4.0",
+        "laravel/tinker": "^2.9",
         "league/omnipay": "^3.2",
         "maatwebsite/excel": "^3.1",
-        "milon/barcode": "^10.0",
-        "omnipay/paypal": "^3.0"
+        "omnipay/paypal": "^3.0",
+        "picqer/php-barcode-generator": "^2.4"
     },
     "require-dev": {
-        "fakerphp/faker": "^1.9.1",
-        "laravel/breeze": "^1.11",
-        "laravel/pint": "^1.0",
-        "laravel/sail": "^1.18",
-        "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^7.0",
-        "phpunit/phpunit": "^10.0",
-        "spatie/laravel-ignition": "^2.0"
+        "fakerphp/faker": "^1.23",
+        "laravel/breeze": "^2.0",
+        "laravel/pint": "^1.13",
+        "laravel/sail": "^1.29",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^8.0",
+        "phpunit/phpunit": "^11.0",
+        "spatie/laravel-ignition": "^2.4"
     },
     "autoload": {
         "psr-4": {
@@ -35,7 +37,9 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         },
-        "files": ["app/Helpers/Helper.php"]
+        "files": [
+            "app/Helpers/Helper.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

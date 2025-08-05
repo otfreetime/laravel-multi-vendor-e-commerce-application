@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'defaults' => [
-        'guard' => 'web',
+    'defaults'         => [
+        'guard'     => 'web',
         'passwords' => 'users',
     ],
 
@@ -35,25 +35,23 @@ return [
     |
     */
 
-    'guards' => [
-        'web' => [ // the Laravel's default Authentication Guard is 'web' Authentication Guard
+    'guards'           => [
+        'web'   => [ // the Laravel's default Authentication Guard is 'web' Authentication Guard
             'driver'   => 'session',
             'provider' => 'users', // the `users' provider     // `users` database table
         ],
-
 
         // My code: (Check Admin.php model    protected $guard = 'admin';    )
         // Multiple Authentication    // https://laravel.com/docs/9.x/passport#multiple-authentication-guards
         'admin' => [
             'driver'   => 'session',
-            'provider' => 'admins' // the `admins' provider    // `admins` database table
+            'provider' => 'admins', // the `admins' provider    // `admins` database table
         ],
 
-
-        // My code: "Laravel Passport" Package for API Authentication        // https://laravel.com/docs/9.x/passport#:~:text=Finally%2C%20in%20your,configuration%20file
-        'api' => [
-            'driver'   => 'passport', // "Laravel Passport" Package
-            'provider' => 'users' // the `admins' provider    // `admins` database table
+        // My code: "Laravel Sanctum" Package for API Authentication        // https://laravel.com/docs/9.x/sanctum
+        'api'   => [
+            'driver'   => 'sanctum', // "Laravel Sanctum" Package
+            'provider' => 'users',   // the `users' provider    // `users` database table
         ],
     ],
 
@@ -74,10 +72,10 @@ return [
     |
     */
 
-    'providers' => [
-        'users' => [
+    'providers'        => [
+        'users'  => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class, // the User.php Model of the `users` database table
+            'model'  => App\Models\User::class, // the User.php Model of the `users` database table
         ],
 
         // My code: (Check Admin.php model    protected $guard = 'admin';    )
@@ -108,11 +106,11 @@ return [
     |
     */
 
-    'passwords' => [
+    'passwords'        => [
         'users' => [
             'provider' => 'users',
-            'table' => 'password_resets',
-            'expire' => 60,
+            'table'    => 'password_resets',
+            'expire'   => 60,
             'throttle' => 60,
         ],
     ],

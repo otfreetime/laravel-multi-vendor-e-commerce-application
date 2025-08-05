@@ -1,4 +1,4 @@
-{{-- Modal Popup --}} 
+{{-- Modal Popup --}}
 
 
 <!-- Dummy Selectbox -->
@@ -39,25 +39,33 @@
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <!-- Product-zoom-area -->
                         <div class="zoom-area">
-                            <img id="zoom-pro-quick-view" class="img-fluid" src="{{ asset('front/images/product/product@4x.jpg') }}" data-zoom-image="{{ asset('front/images/product/product@4x.jpg') }}" alt="Zoom Image">
+                            <img id="zoom-pro-quick-view" class="img-fluid"
+                                src="{{ asset('front/images/product/product@4x.jpg') }}"
+                                data-zoom-image="{{ asset('front/images/product/product@4x.jpg') }}" alt="Zoom Image">
                             <div id="gallery-quick-view" class="u-s-m-t-10">
-                                <a class="active" data-image="{{ asset('front/images/product/product@4x.jpg') }}" data-zoom-image="{{ asset('front/images/product/product@4x.jpg') }}">
-                                <img src="{{ asset('front/images/product/product@2x.jpg') }}" alt="Product">
+                                <a class="active" data-image="{{ asset('front/images/product/product@4x.jpg') }}"
+                                    data-zoom-image="{{ asset('front/images/product/product@4x.jpg') }}">
+                                    <img src="{{ asset('front/images/product/product@2x.jpg') }}" alt="Product">
                                 </a>
-                                <a data-image="{{ asset('front/images/product/product@4x.jpg') }}" data-zoom-image="{{ asset('front/images/product/product@4x.jpg') }}">
-                                <img src="{{ asset('front/images/product/product@2x.jpg') }}" alt="Product">
+                                <a data-image="{{ asset('front/images/product/product@4x.jpg') }}"
+                                    data-zoom-image="{{ asset('front/images/product/product@4x.jpg') }}">
+                                    <img src="{{ asset('front/images/product/product@2x.jpg') }}" alt="Product">
                                 </a>
-                                <a data-image="{{ asset('front/images/product/product@4x.jpg') }}" data-zoom-image="{{ asset('front/images/product/product@4x.jpg') }}">
-                                <img src="{{ asset('front/images/product/product@2x.jpg') }}" alt="Product">
+                                <a data-image="{{ asset('front/images/product/product@4x.jpg') }}"
+                                    data-zoom-image="{{ asset('front/images/product/product@4x.jpg') }}">
+                                    <img src="{{ asset('front/images/product/product@2x.jpg') }}" alt="Product">
                                 </a>
-                                <a data-image="{{ asset('front/images/product/product@4x.jpg') }}" data-zoom-image="{{ asset('front/images/product/product@4x.jpg') }}">
-                                <img src="{{ asset('front/images/product/product@2x.jpg') }}" alt="Product">
+                                <a data-image="{{ asset('front/images/product/product@4x.jpg') }}"
+                                    data-zoom-image="{{ asset('front/images/product/product@4x.jpg') }}">
+                                    <img src="{{ asset('front/images/product/product@2x.jpg') }}" alt="Product">
                                 </a>
-                                <a data-image="{{ asset('front/images/product/product@4x.jpg') }}" data-zoom-image="{{ asset('front/images/product/product@4x.jpg') }}">
-                                <img src="{{ asset('front/images/product/product@2x.jpg') }}" alt="Product">
+                                <a data-image="{{ asset('front/images/product/product@4x.jpg') }}"
+                                    data-zoom-image="{{ asset('front/images/product/product@4x.jpg') }}">
+                                    <img src="{{ asset('front/images/product/product@2x.jpg') }}" alt="Product">
                                 </a>
-                                <a data-image="{{ asset('front/images/product/product@4x.jpg') }}" data-zoom-image="{{ asset('front/images/product/product@4x.jpg') }}">
-                                <img src="{{ asset('front/images/product/product@2x.jpg') }}" alt="Product">
+                                <a data-image="{{ asset('front/images/product/product@4x.jpg') }}"
+                                    data-zoom-image="{{ asset('front/images/product/product@4x.jpg') }}">
+                                    <img src="{{ asset('front/images/product/product@2x.jpg') }}" alt="Product">
                                 </a>
                             </div>
                         </div>
@@ -95,7 +103,11 @@
                             </div>
                             <div class="section-2-short-description u-s-p-y-14">
                                 <h6 class="information-heading u-s-m-b-8">Description:</h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                    pariatur.
                                 </p>
                             </div>
                             <div class="section-3-price-original-discount u-s-p-y-14">
@@ -168,33 +180,33 @@
                                         <ul class="social-media-list">
                                             <li>
                                                 <a href="#">
-                                                <i class="fab fa-facebook-f"></i>
+                                                    <i class="fab fa-facebook-f"></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                <i class="fab fa-twitter"></i>
+                                                    <i class="fab fa-twitter"></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                <i class="fab fa-google-plus-g"></i>
+                                                    <i class="fab fa-google-plus-g"></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                <i class="fas fa-rss"></i>
+                                                    <i class="fas fa-rss"></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                <i class="fab fa-pinterest"></i>
+                                                    <i class="fab fa-pinterest"></i>
                                                 </a>
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="quantity-wrapper u-s-m-b-22">
-                                        <span>Quantity:</span>
+                                        <span>{{ __('common.quantity') }}:</span>
                                         <div class="quantity">
                                             <input type="text" class="quantity-text-field" value="1">
                                             <a class="plus-a" data-max="1000">&#43;</a>
@@ -202,9 +214,12 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <button class="button button-outline-secondary" type="submit">Add to cart</button>
-                                        <button class="button button-outline-secondary far fa-heart u-s-m-l-6"></button>
-                                        <button class="button button-outline-secondary far fa-envelope u-s-m-l-6"></button>
+                                        <button class="button button-outline-secondary"
+                                            type="submit">{{ __('common.add_to_cart') }}</button>
+                                        <button
+                                            class="button button-outline-secondary far fa-heart u-s-m-l-6"></button>
+                                        <button
+                                            class="button button-outline-secondary far fa-envelope u-s-m-l-6"></button>
                                     </div>
                                 </form>
                             </div>

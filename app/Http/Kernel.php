@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -36,6 +35,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \App\Http\Middleware\SetLocale::class,
         ],
 
         'api' => [
@@ -64,9 +64,8 @@ class Kernel extends HttpKernel
         'throttle'         => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified'         => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
-
         // My code:
         // Registering Middleware: Assigning Middleware To Routes: https://laravel.com/docs/9.x/middleware#assigning-middleware-to-routes
-        'admin' => \App\Http\Middleware\Admin::class,
+        'admin'            => \App\Http\Middleware\Admin::class,
     ];
 }

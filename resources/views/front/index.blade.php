@@ -1,4 +1,4 @@
-{{-- This page is rendered by index() method in Front/IndexController.php --}}
+{{-- This page is rendered by index() method in Front/IndexCo                        <a class="nav-link" data-toggle="tab" href="#featured-products">{{ __('common.featured_products') }}</a>troller.php --}}
 @extends('front.layout.layout')
 
 
@@ -7,13 +7,15 @@
     <div class="default-height ph-item">
         <div class="slider-main owl-carousel">
 
-            {{-- Show the banner dynamically depending on the Admin Panel choice --}} 
+            {{-- Show the banner dynamically depending on the Admin Panel choice --}}
             @foreach ($sliderBanners as $banner)
                 <div class="bg-image">
                     <div class="slide-content">
                         <h1>
-                            <a @if (!empty($banner['link'])) href="{{ url($banner['link']) }}" @else href="javascript:;" @endif>
-                                <img src="{{ asset('front/images/banner_images/' . $banner['image']) }}" title="{{ $banner['title'] }}" alt="{{ $banner['title'] }}">
+                            <a
+                                @if (!empty($banner['link'])) href="{{ url($banner['link']) }}" @else href="javascript:;" @endif>
+                                <img src="{{ asset('front/images/banner_images/' . $banner['image']) }}"
+                                    title="{{ $banner['title'] }}" alt="{{ $banner['title'] }}">
                             </a>
                         </h1>
                         <h2>{{ $banner['title'] }}</h2>
@@ -26,19 +28,21 @@
 
 
 
-    
+
     @if (isset($fixBanners[1]['image']))
         <!-- Banner-Layer -->
         <div class="banner-layer">
             <div class="container">
                 <div class="image-banner">
-                    <a target="_blank" rel="nofollow" href="{{ url($fixBanners[1]['link']) }}" class="mx-auto banner-hover effect-dark-opacity">
-                        <img class="img-fluid" src="{{ asset('front/images/banner_images/' . $fixBanners[1]['image']) }}" alt="{{ $fixBanners[1]['alt'] }}" title="{{ $fixBanners[1]['title'] }}">
+                    <a target="_blank" rel="nofollow" href="{{ url($fixBanners[1]['link']) }}"
+                        class="mx-auto banner-hover effect-dark-opacity">
+                        <img class="img-fluid" src="{{ asset('front/images/banner_images/' . $fixBanners[1]['image']) }}"
+                            alt="{{ $fixBanners[1]['alt'] }}" title="{{ $fixBanners[1]['title'] }}">
                     </a>
                 </div>
             </div>
         </div>
-        <!-- Banner-Layer /- -->    
+        <!-- Banner-Layer /- -->
     @endif
 
 
@@ -50,13 +54,16 @@
                 <h3 class="sec-maker-h3">TOP COLLECTION</h3>
                 <ul class="nav tab-nav-style-1-a justify-content-center">
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#men-latest-products">New Arrivals</a>
+                        <a class="nav-link active" data-toggle="tab"
+                            href="#men-latest-products">{{ __('common.new_arrivals') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#men-best-selling-products">Best Sellers</a>
+                        <a class="nav-link" data-toggle="tab"
+                            href="#men-best-selling-products">{{ __('common.best_sellers') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#discounted-products">Discounted Products</a>
+                        <a class="nav-link" data-toggle="tab"
+                            href="#discounted-products">{{ __('common.discounted_products') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="tab" href="#men-featured-products">Featured Products</a>
@@ -70,10 +77,11 @@
                             <div class="slider-fouc">
                                 <div class="products-slider owl-carousel" data-item="4">
 
-                                    {{-- Show 'New Arrivals'. Show the LATEST 8 products ONLY. Check the index() method in IndexController.php --}} 
+                                    {{-- Show 'New Arrivals'. Show the LATEST 8 products ONLY. Check the index() method in IndexController.php --}}
                                     @foreach ($newProducts as $product)
                                         @php
-                                            $product_image_path = 'front/images/product_images/small/' . $product['product_image'];
+                                            $product_image_path =
+                                                'front/images/product_images/small/' . $product['product_image'];
                                             // dd($product['product_image']);
                                             // dd($product_image_path);
                                             // if (!empty($product['product_image']) && file_exists($product_image_path)) {
@@ -85,29 +93,41 @@
 
                                         <div class="item">
                                             <div class="image-container">
-                                                <a class="item-img-wrapper-link" href="{{ url('product/' . $product['id']) }}">
-                                                    @if (!empty($product['product_image']) && file_exists($product_image_path)) {{-- if the product image exists in BOTH database table AND filesystem (on server) --}}
-                                                        <img class="img-fluid" src="{{ asset($product_image_path) }}" alt="Product">
-                                                    @else {{-- show the dummy image --}}
-                                                        <img class="img-fluid" src="{{ asset('front/images/product_images/small/no-image.png') }}" alt="Product">
+                                                <a class="item-img-wrapper-link"
+                                                    href="{{ url('product/' . $product['id']) }}">
+                                                    @if (!empty($product['product_image']) && file_exists($product_image_path))
+                                                        {{-- if the product image exists in BOTH database table AND filesystem (on server) --}}
+                                                        <img class="img-fluid" src="{{ asset($product_image_path) }}"
+                                                            alt="Product">
+                                                    @else
+                                                        {{-- show the dummy image --}}
+                                                        <img class="img-fluid"
+                                                            src="{{ asset('front/images/product_images/small/no-image.png') }}"
+                                                            alt="Product">
                                                     @endif
                                                 </a>
                                                 <div class="item-action-behaviors">
-                                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                                                    <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                    <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                                    <a class="item-addCart" href="{{ url('product/' . $product['id']) }}">Add to Cart</a>
+                                                    <a class="item-quick-look" data-toggle="modal"
+                                                        href="#quick-view">{{ __('common.quick_look') }}</a>
+                                                    <a class="item-mail"
+                                                        href="javascript:void(0)">{{ __('common.mail') }}</a>
+                                                    <a class="item-addwishlist"
+                                                        href="javascript:void(0)">{{ __('common.add_to_wishlist') }}</a>
+                                                    <a class="item-addCart"
+                                                        href="{{ url('product/' . $product['id']) }}">{{ __('common.add_to_cart') }}</a>
                                                 </div>
                                             </div>
                                             <div class="item-content">
                                                 <div class="what-product-is">
                                                     <ul class="bread-crumb">
                                                         <li>
-                                                            <a href="{{ url('product/' . $product['id']) }}">{{ $product['product_code'] }}</a>
+                                                            <a
+                                                                href="{{ url('product/' . $product['id']) }}">{{ $product['product_code'] }}</a>
                                                         </li>
                                                     </ul>
                                                     <h6 class="item-title">
-                                                        <a href="{{ url('product/' . $product['id']) }}">{{ $product['product_name'] }}</a>
+                                                        <a
+                                                            href="{{ url('product/' . $product['id']) }}">{{ $product['product_name'] }}</a>
                                                     </h6>
                                                     <div class="item-stars">
                                                         <div class='star' title="0 out of 5 - based on 0 Reviews">
@@ -121,11 +141,14 @@
 
                                                 {{-- Call the static getDiscountPrice() method in the Product.php Model to determine the final price of a product because a product can have a discount from TWO things: either a `CATEGORY` discount or `PRODUCT` discout     --}}
                                                 @php
-                                                    $getDiscountPrice = \App\Models\Product::getDiscountPrice($product['id']);
+                                                    $getDiscountPrice = \App\Models\Product::getDiscountPrice(
+                                                        $product['id'],
+                                                    );
                                                 @endphp
 
 
-                                                @if ($getDiscountPrice > 0) {{-- If there's a discount on the price, show the price before (the original price) and after (the new price) the discount --}}
+                                                @if ($getDiscountPrice > 0)
+                                                    {{-- If there's a discount on the price, show the price before (the original price) and after (the new price) the discount --}}
                                                     <div class="price-template">
                                                         <div class="item-new-price">
                                                             Rs . {{ $getDiscountPrice }}
@@ -134,7 +157,8 @@
                                                             Rs . {{ $product['product_price'] }}
                                                         </div>
                                                     </div>
-                                                @else {{-- if there's no discount on the price, show the original price --}}
+                                                @else
+                                                    {{-- if there's no discount on the price, show the original price --}}
                                                     <div class="price-template">
                                                         <div class="item-new-price">
                                                             Rs . {{ $product['product_price'] }}
@@ -158,10 +182,11 @@
                                 <div class="products-slider owl-carousel" data-item="4">
 
 
-                                    {{-- Show the 'Best Seller' products. Check the index() method in IndexController.php --}} 
+                                    {{-- Show the 'Best Seller' products. Check the index() method in IndexController.php --}}
                                     @foreach ($bestSellers as $product)
                                         @php
-                                            $product_image_path = 'front/images/product_images/small/' . $product['product_image'];
+                                            $product_image_path =
+                                                'front/images/product_images/small/' . $product['product_image'];
                                             // dd($product['product_image']);
                                             // dd($product_image_path);
                                             // if (!empty($product['product_image']) && file_exists($product_image_path)) {
@@ -173,29 +198,41 @@
 
                                         <div class="item">
                                             <div class="image-container">
-                                                <a class="item-img-wrapper-link" href="{{ url('product/' . $product['id']) }}">
-                                                    @if (!empty($product['product_image']) && file_exists($product_image_path)) {{-- if the product image exists in BOTH database table AND filesystem (on server) --}}
-                                                        <img class="img-fluid" src="{{ asset($product_image_path) }}" alt="Product">
-                                                    @else {{-- show the dummy image --}}
-                                                        <img class="img-fluid" src="{{ asset('front/images/product_images/small/no-image.png') }}" alt="Product">
+                                                <a class="item-img-wrapper-link"
+                                                    href="{{ url('product/' . $product['id']) }}">
+                                                    @if (!empty($product['product_image']) && file_exists($product_image_path))
+                                                        {{-- if the product image exists in BOTH database table AND filesystem (on server) --}}
+                                                        <img class="img-fluid" src="{{ asset($product_image_path) }}"
+                                                            alt="Product">
+                                                    @else
+                                                        {{-- show the dummy image --}}
+                                                        <img class="img-fluid"
+                                                            src="{{ asset('front/images/product_images/small/no-image.png') }}"
+                                                            alt="Product">
                                                     @endif
                                                 </a>
                                                 <div class="item-action-behaviors">
-                                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                                                    <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                    <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                                    <a class="item-addCart" href="{{ url('product/' . $product['id']) }}">Add to Cart</a>
+                                                    <a class="item-quick-look" data-toggle="modal"
+                                                        href="#quick-view">{{ __('common.quick_look') }}</a>
+                                                    <a class="item-mail"
+                                                        href="javascript:void(0)">{{ __('common.mail') }}</a>
+                                                    <a class="item-addwishlist"
+                                                        href="javascript:void(0)">{{ __('common.add_to_wishlist') }}</a>
+                                                    <a class="item-addCart"
+                                                        href="{{ url('product/' . $product['id']) }}">{{ __('common.add_to_cart') }}</a>
                                                 </div>
                                             </div>
                                             <div class="item-content">
                                                 <div class="what-product-is">
                                                     <ul class="bread-crumb">
                                                         <li>
-                                                            <a href="{{ url('product/' . $product['id']) }}">{{ $product['product_code'] }}</a>
+                                                            <a
+                                                                href="{{ url('product/' . $product['id']) }}">{{ $product['product_code'] }}</a>
                                                         </li>
                                                     </ul>
                                                     <h6 class="item-title">
-                                                        <a href="{{ url('product/' . $product['id']) }}">{{ $product['product_name'] }}</a>
+                                                        <a
+                                                            href="{{ url('product/' . $product['id']) }}">{{ $product['product_name'] }}</a>
                                                     </h6>
                                                     <div class="item-stars">
                                                         <div class='star' title="0 out of 5 - based on 0 Reviews">
@@ -207,9 +244,12 @@
 
                                                 {{-- Call the static getDiscountPrice() method in the Product.php Model to determine the final price of a product because a product can have a discount from TWO things: either a `CATEGORY` discount or `PRODUCT` discout     --}}
                                                 @php
-                                                    $getDiscountPrice = \App\Models\Product::getDiscountPrice($product['id']);
+                                                    $getDiscountPrice = \App\Models\Product::getDiscountPrice(
+                                                        $product['id'],
+                                                    );
                                                 @endphp
-                                                @if ($getDiscountPrice > 0) {{-- If there's a discount on the price, show the price before (the original price) and after (the new price) the discount --}}
+                                                @if ($getDiscountPrice > 0)
+                                                    {{-- If there's a discount on the price, show the price before (the original price) and after (the new price) the discount --}}
                                                     <div class="price-template">
                                                         <div class="item-new-price">
                                                             Rs . {{ $getDiscountPrice }}
@@ -218,7 +258,8 @@
                                                             Rs . {{ $product['product_price'] }}
                                                         </div>
                                                     </div>
-                                                @else {{-- if there's no discount on the price, show the original price --}}
+                                                @else
+                                                    {{-- if there's no discount on the price, show the original price --}}
                                                     <div class="price-template">
                                                         <div class="item-new-price">
                                                             Rs . {{ $product['product_price'] }}
@@ -239,10 +280,11 @@
                                 <div class="products-slider owl-carousel" data-item="4">
 
 
-                                    {{-- Show the 'Best Seller' products. Check the index() method in IndexController.php --}} 
+                                    {{-- Show the 'Best Seller' products. Check the index() method in IndexController.php --}}
                                     @foreach ($discountedProducts as $product)
                                         @php
-                                            $product_image_path = 'front/images/product_images/small/' . $product['product_image'];
+                                            $product_image_path =
+                                                'front/images/product_images/small/' . $product['product_image'];
                                             // dd($product['product_image']);
                                             // dd($product_image_path);
                                             // if (!empty($product['product_image']) && file_exists($product_image_path)) {
@@ -254,29 +296,41 @@
 
                                         <div class="item">
                                             <div class="image-container">
-                                                <a class="item-img-wrapper-link" href="{{ url('product/' . $product['id']) }}">
-                                                    @if (!empty($product['product_image']) && file_exists($product_image_path)) {{-- if the product image exists in BOTH database table AND filesystem (on server) --}}
-                                                        <img class="img-fluid" src="{{ asset($product_image_path) }}" alt="Product">
-                                                    @else {{-- show the dummy image --}}
-                                                        <img class="img-fluid" src="{{ asset('front/images/product_images/small/no-image.png') }}" alt="Product">
+                                                <a class="item-img-wrapper-link"
+                                                    href="{{ url('product/' . $product['id']) }}">
+                                                    @if (!empty($product['product_image']) && file_exists($product_image_path))
+                                                        {{-- if the product image exists in BOTH database table AND filesystem (on server) --}}
+                                                        <img class="img-fluid" src="{{ asset($product_image_path) }}"
+                                                            alt="Product">
+                                                    @else
+                                                        {{-- show the dummy image --}}
+                                                        <img class="img-fluid"
+                                                            src="{{ asset('front/images/product_images/small/no-image.png') }}"
+                                                            alt="Product">
                                                     @endif
                                                 </a>
                                                 <div class="item-action-behaviors">
-                                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                                                    <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                    <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                                    <a class="item-addCart" href="{{ url('product/' . $product['id']) }}">Add to Cart</a>
+                                                    <a class="item-quick-look" data-toggle="modal"
+                                                        href="#quick-view">{{ __('common.quick_look') }}</a>
+                                                    <a class="item-mail"
+                                                        href="javascript:void(0)">{{ __('common.mail') }}</a>
+                                                    <a class="item-addwishlist"
+                                                        href="javascript:void(0)">{{ __('common.add_to_wishlist') }}</a>
+                                                    <a class="item-addCart"
+                                                        href="{{ url('product/' . $product['id']) }}">{{ __('common.add_to_cart') }}</a>
                                                 </div>
                                             </div>
                                             <div class="item-content">
                                                 <div class="what-product-is">
                                                     <ul class="bread-crumb">
                                                         <li>
-                                                            <a href="{{ url('product/' . $product['id']) }}">{{ $product['product_code'] }}</a>
+                                                            <a
+                                                                href="{{ url('product/' . $product['id']) }}">{{ $product['product_code'] }}</a>
                                                         </li>
                                                     </ul>
                                                     <h6 class="item-title">
-                                                        <a href="{{ url('product/' . $product['id']) }}">{{ $product['product_name'] }}</a>
+                                                        <a
+                                                            href="{{ url('product/' . $product['id']) }}">{{ $product['product_name'] }}</a>
                                                     </h6>
                                                     <div class="item-stars">
                                                         <div class='star' title="0 out of 5 - based on 0 Reviews">
@@ -288,9 +342,12 @@
 
                                                 {{-- Call the static getDiscountPrice() method in the Product.php Model to determine the final price of a product because a product can have a discount from TWO things: either a `CATEGORY` discount or `PRODUCT` discout     --}}
                                                 @php
-                                                    $getDiscountPrice = \App\Models\Product::getDiscountPrice($product['id']);
+                                                    $getDiscountPrice = \App\Models\Product::getDiscountPrice(
+                                                        $product['id'],
+                                                    );
                                                 @endphp
-                                                @if ($getDiscountPrice > 0) {{-- If there's a discount on the price, show the price before (the original price) and after (the new price) the discount --}}
+                                                @if ($getDiscountPrice > 0)
+                                                    {{-- If there's a discount on the price, show the price before (the original price) and after (the new price) the discount --}}
                                                     <div class="price-template">
                                                         <div class="item-new-price">
                                                             Rs . {{ $getDiscountPrice }}
@@ -299,7 +356,8 @@
                                                             Rs . {{ $product['product_price'] }}
                                                         </div>
                                                     </div>
-                                                @else {{-- if there's no discount on the price, show the original price --}}
+                                                @else
+                                                    {{-- if there's no discount on the price, show the original price --}}
                                                     <div class="price-template">
                                                         <div class="item-new-price">
                                                             Rs . {{ $product['product_price'] }}
@@ -320,10 +378,11 @@
                                 <div class="products-slider owl-carousel" data-item="4">
 
 
-                                    {{-- Show the 'Best Seller' products. Check the index() method in IndexController.php --}} 
+                                    {{-- Show the 'Best Seller' products. Check the index() method in IndexController.php --}}
                                     @foreach ($featuredProducts as $product)
                                         @php
-                                            $product_image_path = 'front/images/product_images/small/' . $product['product_image'];
+                                            $product_image_path =
+                                                'front/images/product_images/small/' . $product['product_image'];
                                             // dd($product['product_image']);
                                             // dd($product_image_path);
                                             // if (!empty($product['product_image']) && file_exists($product_image_path)) {
@@ -335,29 +394,41 @@
 
                                         <div class="item">
                                             <div class="image-container">
-                                                <a class="item-img-wrapper-link" href="{{ url('product/' . $product['id']) }}">
-                                                    @if (!empty($product['product_image']) && file_exists($product_image_path)) {{-- if the product image exists in BOTH database table AND filesystem (on server) --}}
-                                                        <img class="img-fluid" src="{{ asset($product_image_path) }}" alt="Product">
-                                                    @else {{-- show the dummy image --}}
-                                                        <img class="img-fluid" src="{{ asset('front/images/product_images/small/no-image.png') }}" alt="Product">
+                                                <a class="item-img-wrapper-link"
+                                                    href="{{ url('product/' . $product['id']) }}">
+                                                    @if (!empty($product['product_image']) && file_exists($product_image_path))
+                                                        {{-- if the product image exists in BOTH database table AND filesystem (on server) --}}
+                                                        <img class="img-fluid" src="{{ asset($product_image_path) }}"
+                                                            alt="Product">
+                                                    @else
+                                                        {{-- show the dummy image --}}
+                                                        <img class="img-fluid"
+                                                            src="{{ asset('front/images/product_images/small/no-image.png') }}"
+                                                            alt="Product">
                                                     @endif
                                                 </a>
                                                 <div class="item-action-behaviors">
-                                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                                                    <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                    <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                                    <a class="item-addCart" href="{{ url('product/' . $product['id']) }}">Add to Cart</a>
+                                                    <a class="item-quick-look" data-toggle="modal"
+                                                        href="#quick-view">{{ __('common.quick_look') }}</a>
+                                                    <a class="item-mail"
+                                                        href="javascript:void(0)">{{ __('common.mail') }}</a>
+                                                    <a class="item-addwishlist"
+                                                        href="javascript:void(0)">{{ __('common.add_to_wishlist') }}</a>
+                                                    <a class="item-addCart"
+                                                        href="{{ url('product/' . $product['id']) }}">{{ __('common.add_to_cart') }}</a>
                                                 </div>
                                             </div>
                                             <div class="item-content">
                                                 <div class="what-product-is">
                                                     <ul class="bread-crumb">
                                                         <li>
-                                                            <a href="{{ url('product/' . $product['id']) }}">{{ $product['product_code'] }}</a>
+                                                            <a
+                                                                href="{{ url('product/' . $product['id']) }}">{{ $product['product_code'] }}</a>
                                                         </li>
                                                     </ul>
                                                     <h6 class="item-title">
-                                                        <a href="{{ url('product/' . $product['id']) }}">{{ $product['product_name'] }}</a>
+                                                        <a
+                                                            href="{{ url('product/' . $product['id']) }}">{{ $product['product_name'] }}</a>
                                                     </h6>
                                                     <div class="item-stars">
                                                         <div class='star' title="0 out of 5 - based on 0 Reviews">
@@ -369,9 +440,12 @@
 
                                                 {{-- Call the static getDiscountPrice() method in the Product.php Model to determine the final price of a product because a product can have a discount from TWO things: either a `CATEGORY` discount or `PRODUCT` discout     --}}
                                                 @php
-                                                    $getDiscountPrice = \App\Models\Product::getDiscountPrice($product['id']);
+                                                    $getDiscountPrice = \App\Models\Product::getDiscountPrice(
+                                                        $product['id'],
+                                                    );
                                                 @endphp
-                                                @if ($getDiscountPrice > 0) {{-- If there's a discount on the price, show the price before (the original price) and after (the new price) the discount --}}
+                                                @if ($getDiscountPrice > 0)
+                                                    {{-- If there's a discount on the price, show the price before (the original price) and after (the new price) the discount --}}
                                                     <div class="price-template">
                                                         <div class="item-new-price">
                                                             Rs . {{ $getDiscountPrice }}
@@ -380,7 +454,8 @@
                                                             Rs . {{ $product['product_price'] }}
                                                         </div>
                                                     </div>
-                                                @else {{-- if there's no discount on the price, show the original price --}}
+                                                @else
+                                                    {{-- if there's no discount on the price, show the original price --}}
                                                     <div class="price-template">
                                                         <div class="item-new-price">
                                                             Rs . {{ $product['product_price'] }}
@@ -405,19 +480,21 @@
 
 
 
-    
+
     @if (isset($fixBanners[1]['image']))
         <!-- Banner-Layer -->
         <div class="banner-layer">
             <div class="container">
                 <div class="image-banner">
-                    <a target="_blank" rel="nofollow" href="{{ url($fixBanners[1]['link']) }}" class="mx-auto banner-hover effect-dark-opacity">
-                        <img class="img-fluid" src="{{ asset('front/images/banner_images/' . $fixBanners[1]['image']) }}" alt="{{ $fixBanners[1]['alt'] }}" title="{{ $fixBanners[1]['title'] }}">
+                    <a target="_blank" rel="nofollow" href="{{ url($fixBanners[1]['link']) }}"
+                        class="mx-auto banner-hover effect-dark-opacity">
+                        <img class="img-fluid" src="{{ asset('front/images/banner_images/' . $fixBanners[1]['image']) }}"
+                            alt="{{ $fixBanners[1]['alt'] }}" title="{{ $fixBanners[1]['title'] }}">
                     </a>
                 </div>
             </div>
         </div>
-        <!-- Banner-Layer /- -->    
+        <!-- Banner-Layer /- -->
     @endif
 
 

@@ -32,11 +32,11 @@
             content: '★ ';
         }
         .rate > input:checked ~ label {
-            color: #ffc700;    
+            color: #ffc700;
         }
         .rate:not(:checked) > label:hover,
         .rate:not(:checked) > label:hover ~ label {
-            color: #deb217;  
+            color: #deb217;
         }
         .rate > input:checked + label:hover,
         .rate > input:checked + label:hover ~ label,
@@ -48,7 +48,7 @@
     </style>
 
 
-    
+
     <!-- Page Introduction Wrapper -->
     <div class="page-style-a">
         <div class="container">
@@ -123,7 +123,7 @@
                         @endif
 
 
-                        {{-- Displaying Laravel Validation Errors: https://laravel.com/docs/9.x/validation#quick-displaying-the-validation-errors --}}    
+                        {{-- Displaying Laravel Validation Errors: https://laravel.com/docs/9.x/validation#quick-displaying-the-validation-errors --}}
                         @if ($errors->any())
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
 
@@ -201,12 +201,12 @@
                             </div>
                         </div>
                         <div class="section-2-short-description u-s-p-y-14">
-                            <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                            <h6 class="information-heading u-s-m-b-8">{{ __('common.description') }}:</h6>
                             <p>{{ $productDetails['description'] }}</p>
                         </div>
                         <div class="section-3-price-original-discount u-s-p-y-14">
 
-                        
+
 
                             @php $getDiscountPrice = \App\Models\Product::getDiscountPrice($productDetails['id']) @endphp
 
@@ -226,29 +226,29 @@
                                     </div>
                                 @endif
 
-                            </span> 
+                            </span>
 
 
 
                         </div>
                         <div class="section-4-sku-information u-s-p-y-14">
-                            <h6 class="information-heading u-s-m-b-8">Sku Information:</h6>
+                            <h6 class="information-heading u-s-m-b-8">{{ __('common.sku_information') }}:</h6>
                             <div class="left">
-                                <span>Product Code:</span>
+                                <span>{{ __('common.product_code') }}:</span>
                                 <span>{{ $productDetails['product_code'] }}</span>
                             </div>
                             <div class="left">
-                                <span>Product Color:</span>
+                                <span>{{ __('common.product_color') }}:</span>
                                 <span>{{ $productDetails['product_color'] }}</span>
                             </div>
                             <div class="availability">
-                                <span>Availability:</span>
+                                <span>{{ __('common.availability') }}:</span>
 
 
                                 @if ($totalStock > 0)
-                                    <span>In Stock</span>
+                                    <span>{{ __('common.in_stock') }}</span>
                                 @else
-                                    <span style="color: red">Out of Stock (Sold-out)</span>
+                                    <span style="color: red">{{ __('common.out_of_stock') }}</span>
                                 @endif
 
 
@@ -282,19 +282,19 @@
 
 
 
-                        {{-- Add to Cart <form> --}} 
+                        {{-- Add to Cart <form> --}}
                         <form action="{{ url('cart/add') }}" method="Post" class="post-form">
                             @csrf {{-- Preventing CSRF Requests: https://laravel.com/docs/9.x/csrf#preventing-csrf-requests --}}
 
 
-                            <input type="hidden" name="product_id" value="{{ $productDetails['id'] }}"> {{-- Add to Cart <form> --}} 
+                            <input type="hidden" name="product_id" value="{{ $productDetails['id'] }}"> {{-- Add to Cart <form> --}}
 
 
                             <div class="section-5-product-variants u-s-p-y-14">
 
 
 
-                                {{-- Managing Product Colors (using the `group_code` column in `products` table) --}} 
+                                {{-- Managing Product Colors (using the `group_code` column in `products` table) --}}
                                 @if (count($groupProducts) > 0) {{-- if there's a value for the `group_code` column (in `products` table) for the currently viewed product --}}
                                     <div>
                                         <div><strong>Product Colors</strong></div>
@@ -311,13 +311,13 @@
 
 
                                 <div class="sizes u-s-m-b-11" style="margin-top: 20px">
-                                    <span>Available Size:</span>
+                                    <span>{{ __('common.available_size') }}:</span>
                                     <div class="size-variant select-box-wrapper">
                                         <select class="select-box product-size" id="getPrice" product-id="{{ $productDetails['id'] }}" name="size" required> {{-- Check front/js/custom.js file --}}
 
 
 
-                                            <option value="">Select Size</option>
+                                            <option value="">{{ __('common.select_size') }}</option>
                                             @foreach ($productDetails['attributes'] as $attribute)
                                                 <option value="{{ $attribute['size'] }}">{{ $attribute['size'] }}</option>
                                             @endforeach
@@ -330,15 +330,15 @@
                             </div>
                             <div class="section-6-social-media-quantity-actions u-s-p-y-14">
 
-                                
+
                                 <div class="quantity-wrapper u-s-m-b-22">
-                                    <span>Quantity:</span>
+                                    <span>{{ __('common.quantity') }}:</span>
                                     <div class="quantity">
                                         <input class="quantity-text-field" type="number" name="quantity" value="1">
                                     </div>
                                 </div>
                                 <div>
-                                    <button class="button button-outline-secondary" type="submit">Add to cart</button>
+                                    <button class="button button-outline-secondary" type="submit">{{ __('common.add_to_cart') }}</button>
                                     <button class="button button-outline-secondary far fa-heart u-s-m-l-6"></button>
                                     <button class="button button-outline-secondary far fa-envelope u-s-m-l-6"></button>
                                 </div>
@@ -349,7 +349,7 @@
                         </form>
 
 
-                        {{-- PIN code Availability Check: check if the PIN code of the user's Delivery Address exists in our database (in both `cod_pincodes` and `prepaid_pincodes`) or not via AJAX. Check front/js/custom.js --}} 
+                        {{-- PIN code Availability Check: check if the PIN code of the user's Delivery Address exists in our database (in both `cod_pincodes` and `prepaid_pincodes`) or not via AJAX. Check front/js/custom.js --}}
                         <br><br><b>Delivery</b>
                         <input type="text" id="pincode" placeholder="Check Pincode" required>
                         <button type="button" id="checkPincode">Go</button> {{-- We'll use that checkPincode HTML id attribute in front/js/custom.js as a handle for jQuery --}}
@@ -390,7 +390,7 @@
                                             <source src="{{ url('front/videos/product_videos/' . $productDetails['product_video']) }}" type="video/mp4">
                                         </video>
                                     @else
-                                        Product Video does not exist    
+                                        Product Video does not exist
                                     @endif
 
 
@@ -632,7 +632,7 @@
 
 
 
-                                {{-- Show similar products (or related products) (functionality) by getting other products from THE SAME CATEGORY --}}    
+                                {{-- Show similar products (or related products) (functionality) by getting other products from THE SAME CATEGORY --}}
                                 @foreach ($similarProducts as $product)
                                     <div class="item">
                                         <div class="image-container">
@@ -643,7 +643,7 @@
                                                 @php
                                                     $product_image_path = 'front/images/product_images/small/' . $product['product_image'];
                                                 @endphp
-                        
+
                                                 @if (!empty($product['product_image']) && file_exists($product_image_path)) {{-- if the product image exists in BOTH database table AND filesystem (on server) --}}
                                                     <img class="img-fluid" src="{{ asset($product_image_path) }}" alt="Product">
                                                 @else {{-- show the dummy image --}}
@@ -695,7 +695,7 @@
                                             @if ($getDiscountPrice > 0) {{-- If there's a discount on the price, show the price before (the original price) and after (the new price) the discount --}}
                                                 <div class="price-template">
                                                     <div class="item-new-price">
-                                                        EGP{{ $getDiscountPrice }} 
+                                                        EGP{{ $getDiscountPrice }}
                                                     </div>
                                                     <div class="item-old-price">
                                                         EGP{{ $product['product_price'] }}
@@ -748,7 +748,7 @@
                                                 @php
                                                     $product_image_path = 'front/images/product_images/small/' . $product['product_image'];
                                                 @endphp
-                        
+
                                                 @if (!empty($product['product_image']) && file_exists($product_image_path)) {{-- if the product image exists in BOTH database table AND filesystem (on server) --}}
                                                     <img class="img-fluid" src="{{ asset($product_image_path) }}" alt="Product">
                                                 @else {{-- show the dummy image --}}
@@ -799,7 +799,7 @@
                                             @if ($getDiscountPrice > 0) {{-- If there's a discount on the price, show the price before (the original price) and after (the new price) the discount --}}
                                                 <div class="price-template">
                                                     <div class="item-new-price">
-                                                        EGP{{ $getDiscountPrice }} 
+                                                        EGP{{ $getDiscountPrice }}
                                                     </div>
                                                     <div class="item-old-price">
                                                         EGP{{ $product['product_price'] }}
